@@ -1,300 +1,189 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <!-- Meta tags for social media banners, these should be filled in appropriatly as they are your "business card" -->
-  <!-- Replace the content tag with appropriate information -->
-  <meta name="description" content="DESCRIPTION META TAG">
-  <meta property="og:title" content="SOCIAL MEDIA TITLE TAG"/>
-  <meta property="og:description" content="SOCIAL MEDIA DESCRIPTION TAG TAG"/>
-  <meta property="og:url" content="URL OF THE WEBSITE"/>
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X630-->
-  <meta property="og:image" content="static/image/your_banner_image.png" />
+
+  <!-- Primary Meta Tags -->
+  <title>Cross-Frame Optimal Transport for Skeleton-Based Hand Gesture Recognition</title>
+  <meta name="description"
+        content="We introduce Cross-Frame Optimal Transport (CFOT), a lightweight temporal modeling framework for skeleton-based hand gesture recognition that learns motion-aware cross-frame dependencies beyond fixed temporal links.">
+  <meta name="keywords"
+        content="Skeleton-based action recognition, Hand gesture recognition, Optimal transport, ST-GCN, Temporal modeling, CFOT">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title"
+        content="Cross-Frame Optimal Transport for Skeleton-Based Hand Gesture Recognition"/>
+  <meta property="og:description"
+        content="CFOT formulates cross-frame dependency learning as optimal transport, enabling robust temporal modeling for skeleton-based hand gesture recognition."/>
+  <meta property="og:url" content="https://rehanmohammad.github.io/CFOT/"/>
+  <meta property="og:image" content="static/images/banner.png"/>
   <meta property="og:image:width" content="1200"/>
   <meta property="og:image:height" content="630"/>
 
-
-  <meta name="twitter:title" content="TWITTER BANNER TITLE META TAG">
-  <meta name="twitter:description" content="TWITTER BANNER DESCRIPTION META TAG">
-  <!-- Path to banner image, should be in the path listed below. Optimal dimenssions are 1200X600-->
-  <meta name="twitter:image" content="static/images/your_twitter_banner_image.png">
+  <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <!-- Keywords for your paper to be indexed by-->
-  <meta name="keywords" content="KEYWORDS SHOULD BE PLACED HERE">
+  <meta name="twitter:title"
+        content="Cross-Frame Optimal Transport for Skeleton-Based Hand Gesture Recognition">
+  <meta name="twitter:description"
+        content="A lightweight optimal transport-based temporal modeling framework for skeleton-based hand gesture recognition.">
+  <meta name="twitter:image" content="static/images/banner.png">
+
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-
-  <title>Cross-Frame Optimal Transport for
-Skeleton-Based Hand Gesture Recognition</title>
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
-  rel="stylesheet">
+        rel="stylesheet">
 
+  <!-- CSS -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
   <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
+  <!-- JS -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
   <script defer src="static/js/fontawesome.all.min.js"></script>
   <script src="static/js/bulma-carousel.min.js"></script>
   <script src="static/js/bulma-slider.min.js"></script>
   <script src="static/js/index.js"></script>
+
+  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
 </head>
+
 <body>
 
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop has-text-centered">
 
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Cross-Frame Optimal Transport for
-Skeleton-Based Hand Gesture Recognition</h1>
-            <div class="is-size-5 publication-authors">
-              <!-- Paper authors -->
-              <span class="author-block">
-                <a href="FIRST AUTHOR PERSONAL LINK" target="_blank">Mohammad Rehan</a><sup>1</sup>,</span>
-                <span class="author-block">
-                  <a href="SECOND AUTHOR PERSONAL LINK" target="_blank">Sugata Gangopadhyay</a><sup>1</sup>,</span>
-                  <span class="author-block">
-                    <a href="THIRD AUTHOR PERSONAL LINK" target="_blank">Aditi Gangopadhyay</a><sup>1</sup>,</span>
-                    <span class="author-block">
-                    <a href="FOURTH AUTHOR PERSONAL LINK" target="_blank">Hazem Wannous</a><sup>2</sup>,</span>
-                  </span>
-                  </div>
+      <h1 class="title is-1 publication-title">
+        Cross-Frame Optimal Transport for<br>
+        Skeleton-Based Hand Gesture Recognition
+      </h1>
 
-                  <div class="is-size-5 publication-authors">
-                    <span class="author-block">Indian Institute of Technology Roorkee IITR<br>ICPR 2026</span>
-                    <span class="eql-cntrb"><small><br><sup>*</sup>Indicates Equal Contribution</small></span>
-                  </div>
+      <!-- Authors -->
+      <div class="is-size-5 publication-authors">
+        <span class="author-block">
+          <a href="#" target="_blank">Mohammad Rehan</a><sup>1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="#" target="_blank">Sugata Gangopadhyay</a><sup>1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="#" target="_blank">Aditi Gangopadhyay</a><sup>1</sup>,
+        </span>
+        <span class="author-block">
+          <a href="#" target="_blank">Hazem Wannous</a><sup>2</sup>
+        </span>
+      </div>
 
-                  <div class="column has-text-centered">
-                    <div class="publication-links">
-                         <!-- Arxiv PDF link -->
-                      <!--<span class="link-block">
-                        <a href="https://arxiv.org/pdf/<ARXIV PAPER ID>.pdf" target="_blank"
-                        class="external-link button is-normal is-rounded is-dark">
-                        <span class="icon">
-                          <i class="fas fa-file-pdf"></i>
-                        </span>
-                        <span>Paper</span>
-                      </a>
-                    </span>-->
+      <!-- Affiliations -->
+      <div class="is-size-5 publication-authors">
+        <span class="author-block">
+          <sup>1</sup>Indian Institute of Technology Roorkee, Roorkee, INDIA &nbsp;&nbsp;
+          <sup>2</sup>IMT Nord Europe, Lille, FRANCE
+        </span>
+        <br>
+        <span class="author-block">
+          <strong>ICPR 2026</strong>
+        </span>
+      </div>
 
-                  <!-- Github link -->
-                  <span class="link-block">
-                    <a href="https://github.com/rehanmohammad/CFOT" target="_blank"
-                    class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon">
-                      <i class="fab fa-github"></i>
-                    </span>
-                    <span>Code</span>
-                  </a>
-                </span>
+      <!-- Links -->
+      <div class="publication-links">
 
-                <!-- ArXiv abstract Link -->
-                <!--<span class="link-block">
-                  <a href="https://arxiv.org/abs/<ARXIV PAPER ID>" target="_blank"
-                  class="external-link button is-normal is-rounded is-dark">
-                  <span class="icon">
-                    <i class="ai ai-arxiv"></i>
-                  </span>
-                  <span>arXiv</span>
-                </a>
-              </span>-->
-            </div>
-          </div>
-        </div>
+        <span class="link-block">
+          <a href="https://github.com/rehanmohammad/CFOT"
+             target="_blank"
+             class="external-link button is-normal is-rounded is-dark">
+            <span class="icon"><i class="fab fa-github"></i></span>
+            <span>Code</span>
+          </a>
+        </span>
+
+        <!-- Uncomment when available -->
+        <!--
+        <span class="link-block">
+          <a href="https://arxiv.org/abs/XXXX.XXXXX"
+             target="_blank"
+             class="external-link button is-normal is-rounded is-dark">
+            <span class="icon"><i class="ai ai-arxiv"></i></span>
+            <span>arXiv</span>
+          </a>
+        </span>
+        -->
+
       </div>
     </div>
   </div>
 </section>
 
-
-<!-- Teaser video-->
-<!--<section class="hero teaser">
-  <div class="container is-max-desktop">
-    <div class="hero-body">
-      <video poster="" id="tree" autoplay controls muted loop height="100%">
-        <!-- Your video here -->
-        <source src="static/videos/banner_video.mp4"
-        type="video/mp4">
-      </video>
-      <h2 class="subtitle has-text-centered">
-        Aliquam vitae elit ullamcorper tellus egestas pellentesque. Ut lacus tellus, maximus vel lectus at, placerat pretium mi. Maecenas dignissim tincidunt vestibulum. Sed consequat hendrerit nisl ut maximus. 
-      </h2>
-    </div>
-  </div>
-</section>-->
-<!-- End teaser video -->
-
-<!-- Paper abstract -->
+<!-- ================= ABSTRACT ================= -->
 <section class="section hero is-light">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
+
         <h2 class="title is-3">Abstract</h2>
+
         <div class="content has-text-justified">
           <p>
-            Hand gesture recognition from skeletal data is a core computer vision task. While spatio-temporal GCNs dominate skeleton-based recognition, their temporal modeling typically relies on fixed, identity-centric connections, which limits robustness to repeated motions, phase shifts, and variable gesture speed. We introduce Cross-Frame Optimal Transport (CFOT), a temporal modeling framework that formulates cross-frame dependency learning as optimal transport between frames at multiple temporal offsets. CFOT learns motion-aware affinities and computes (approximately) doubly-stochastic transport plans, enabling stable joint-to-joint interactions across non-consecutive frames beyond fixed sequential links. The proposed module is lightweight and integrates into standard ST-GCN backbones through a simple residual refinement with minimal computational overhead. Experiments on IPN and Briareo confirm consistent improvements in accuracy and efficiency. We further introduce a new skeleton-based Indian Sign Language (ISL) dataset and show effective cross-subject generalization using consumer-grade capture equipment.
+            Skeleton-based hand gesture recognition has achieved remarkable progress
+            with spatio-temporal graph convolutional networks (ST-GCNs). However,
+            existing approaches typically rely on fixed, identity-aligned temporal
+            connections, which limits robustness under repeated motions, temporal
+            phase shifts, and variable execution speeds.
+            <br><br>
+            We propose <strong>Cross-Frame Optimal Transport (CFOT)</strong>, a
+            lightweight temporal modeling framework that formulates cross-frame
+            dependency learning as an optimal transport problem between frames at
+            multiple temporal offsets. CFOT learns motion-aware affinities and
+            computes approximately doubly-stochastic transport plans, enabling
+            stable joint-to-joint interactions across non-consecutive frames beyond
+            fixed sequential links.
+            <br><br>
+            The proposed module integrates seamlessly into standard ST-GCN backbones
+            via residual refinement and incurs minimal computational overhead.
+            Experiments on IPN and Briareo demonstrate consistent improvements in
+            recognition accuracy and efficiency. Additionally, we introduce a new
+            skeleton-based Indian Sign Language (ISL) dataset and show effective
+            cross-subject generalization using consumer-grade capture devices.
           </p>
         </div>
+
       </div>
     </div>
   </div>
 </section>
-<!-- End paper abstract -->
 
-  
-
-<!-- Image carousel -->
+<!-- ================= FIGURE ================= -->
 <section class="hero is-small">
   <div class="hero-body">
     <div class="container">
+
       <div id="results-carousel" class="carousel results-carousel">
-       <div class="item">
-        <!-- Your image here -->
-        <img src="static/images/redesigne_CFOT_framework.png" alt="Cross-Frame Transport Learning architecture"/>
-        <h2 class="subtitle has-text-centered">
-          Overview of the proposed CFOT framework. Overall architecture with
-          early CFOT integration (a) and Single CFOT module: affinity → Sinkhorn plan
-          → feature transport (b).
-        </h2>
+
+        <div class="item">
+          <img src="static/images/redesigne_CFOT_framework.png"
+               alt="Overview of the CFOT framework"/>
+          <h2 class="subtitle has-text-centered">
+            Overview of the proposed CFOT framework.
+            (a) Early integration into ST-GCN backbones.
+            (b) CFOT module: affinity computation, Sinkhorn-based transport,
+            and feature refinement.
+          </h2>
+        </div>
+
       </div>
-      <div class="item">
-        <!-- Your image here -->
-        <!--<img src="static/images/carousel2.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-          Second image description.
-        </h2>
-      </div>-->
-      <div class="item">
-        <!-- Your image here -->
-        <!--<img src="static/images/carousel3.jpg" alt="MY ALT TEXT"/>
-        <h2 class="subtitle has-text-centered">
-         Third image description.
-       </h2>
-     </div>-->
-     <div class="item">
-      <!-- Your image here -->
-      <!--<img src="static/images/carousel4.jpg" alt="MY ALT TEXT"/>
-      <h2 class="subtitle has-text-centered">
-        Fourth image description.
-      </h2>
-    </div>-->
+
+    </div>
   </div>
-</div>
-</div>
 </section>
-<!-- End image carousel -->
 
-
-
-
-<!-- Youtube video -->
-<!--<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <!-- Paper video. -->
-      <!--<h2 class="title is-3">Video Presentation</h2>
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          
-          <div class="publication-video">
-            <!-- Youtube embed code here -->
-            <!--<iframe src="https://www.youtube.com/embed/JkaxUblCGz0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>-->
-<!-- End youtube video -->
-
-
-<!-- Video carousel -->
-<!--<section class="hero is-small">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title is-3">Another Carousel</h2>
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-video1">
-          <video poster="" id="video1" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <!--<source src="static/videos/carousel1.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video2">
-          <video poster="" id="video2" autoplay controls muted loop height="100%">
-            <!-- Your video file here -->
-            <!--<source src="static/videos/carousel2.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-video3">
-          <video poster="" id="video3" autoplay controls muted loop height="100%">\
-            <!-- Your video file here -->
-            <!--<source src="static/videos/carousel3.mp4"
-            type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>-->
-<!-- End video carousel -->
-
-
-
-
-
-
-<!-- Paper poster -->
-<!--<section class="hero is-small is-light">
-  <div class="hero-body">
-    <div class="container">
-      <h2 class="title">Poster</h2>
-
-      <iframe  src="static/pdfs/sample.pdf" width="100%" height="550">
-          </iframe>
-        
-      </div>
-    </div>
-  </section>-->
-<!--End paper poster -->
-
-
-<!--BibTex citation -->
-  <!--<section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>BibTex Code Here</code></pre>
-    </div>
-</section>-->
-<!--End BibTex citation -->
-
-
-  <!--<footer class="footer">
-  <div class="container">
-    <div class="columns is-centered">
-      <div class="column is-8">
-        
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- Statcounter tracking code -->
-  
-<!-- You can add a tracker to track page visits by creating an account at statcounter.com -->
-
-    <!-- End of Statcounter Code -->
-
-  </body>
-  </html>
+</body>
+</html>
